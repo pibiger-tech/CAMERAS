@@ -2,11 +2,15 @@
 
 **USB UVC 1080P Camera Module (GalaxyCore GC2053)**
 
+> 🏷️ **Make it yours.** The U20-GC2053-1080PW ships with full firmware tooling — customize the USB product name, manufacturer string, VID, PID, and serial number to match your brand, no firmware source code required.
+
 ---
 
 ## Overview
 
 The **U20-GC2053-1080PW** is a compact USB UVC camera module based on the **GalaxyCore GC2053** 1/2.9" CMOS sensor, delivering **1920×1080 @ 30fps** over a standard USB 2.0 interface. It is fully UVC-compliant — no driver installation required on Windows, Linux, or macOS.
+
+Whether you are building a product under your own brand or integrating into an OEM system, the U20-GC2053-1080PW gives you the flexibility to present the camera exactly as you want it — from the device name shown in Windows Device Manager to the VID/PID reported to the host OS.
 
 ---
 
@@ -55,20 +59,35 @@ See [`python-code/README.md`](./python-code/README.md) for full usage.
 
 ---
 
-## Firmware
+## Firmware & Branding
 
-The camera ships with **PIBIGER brand firmware** by default. A generic (white-label) firmware is also provided.
+### White-label and Custom Branding
 
-| Firmware | Branding | PID | VID |
+> 💡 **Sell it as your own.** The U20-GC2053-1080PW supports full USB identity customization — change the product name, manufacturer string, VID, PID, and serial number to reflect your brand. No source code, no factory MOQ for basic rebranding. Just edit the firmware package offline and flash it in seconds.
+
+The camera ships with **PIBIGER brand firmware** by default. A generic (white-label) firmware is also provided for resale or integration without Pibiger branding.
+
+| Firmware | Branding | VID | PID |
 | :--- | :--- | :--- | :--- |
-| `PIBIGER-U20-GC2053_SN0001.bin` | PIBIGER | 7884 | 5843 |
-| `U20-1080P_SN001.bin` | USB_CAMERA (generic) | 7884 | 5843 |
+| `PIBIGER-U20-GC2053_SN0001.bin` | PIBIGER | 5843 | 7884 |
+| `U20-1080P_SN001.bin` | USB_CAMERA (generic / white-label) | 5843 | 7884 |
 
 Flash using [`firmware/USBCamDownloadToolV3.6.exe`](./firmware/USBCamDownloadToolV3.6.exe) (Windows).
 
+**What you can customize (no MOQ, no source code needed):**
+
+| Field | Example |
+| :--- | :--- |
+| Product name | `"MyBrand HD Camera"` |
+| Manufacturer string | `"MyCompany Inc."` |
+| Serial number | `"CAM-2024-001"` |
+| VID / PID | Your registered USB IDs |
+
+---
+
 ### XChip XC8031 Firmware Editor
 
-**[`firmware/XChip_XC8031_Tool_Windows.zip`](./firmware/XChip_XC8031_Tool_Windows.zip)** — Windows GUI/CLI tool for offline editing of XChip XC8031 packaged firmware (`.bin`). Allows viewing and patching VID, PID, product name, manufacturer, and serial number without live camera connection.
+**[`firmware/XChip_XC8031_Tool_Windows.zip`](./firmware/XChip_XC8031_Tool_Windows.zip)** — Windows GUI/CLI tool for offline editing of XChip XC8031 packaged firmware (`.bin`). Edit USB identity fields and flash — all without a live camera connection or source code.
 
 **Package contents:**
 
