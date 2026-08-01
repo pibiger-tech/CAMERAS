@@ -69,15 +69,29 @@ Flash using [`firmware/USBCamDownloadToolV3.6.exe`](./firmware/USBCamDownloadToo
 
 ---
 
-## ISP Tuning Tool
+## SPCA ISP Firmware Tool
 
-**[`SPCA_ISP_Tool_Windows_x64.zip`](./SPCA_ISP_Tool_Windows_x64.zip)** — Windows x64 ISP parameter adjustment tool for advanced image quality tuning (white balance, color matrix, gamma, sharpness, noise reduction, etc.).
+**[`SPCA_ISP_Tool_Windows_x64.zip`](./SPCA_ISP_Tool_Windows_x64.zip)** — Windows x64 tool for Sunplus SPCA USB cameras. Supports firmware backup/flash and USB descriptor editing (VID, PID, product name, manufacturer, serial number).
 
-**Usage:**
-1. Download and extract `SPCA_ISP_Tool_Windows_x64.zip`
-2. Connect the camera via USB
-3. Launch the ISP tool executable
-4. Adjust ISP parameters and apply in real time
+**Package contents:**
+
+| File | Description |
+| :--- | :--- |
+| `SPCA_ISP_Tool.exe` | Main program — double-click to run |
+| `SunplusCamera.dll` | SPCA API library (bundled for override / repair) |
+| `README.md` | Usage guide |
+
+**Quick start:**
+1. Extract `SPCA_ISP_Tool_Windows_x64.zip`
+2. Plug in the camera via USB
+3. Run `SPCA_ISP_Tool.exe` → click **Refresh** → select device → **Read Info**
+
+**Common tasks:**
+- **Backup firmware:** Read Firmware… → save as `.bin`
+- **Flash firmware:** Write Firmware… → select `.bin` → confirm → replug camera
+- **Change VID / PID / product name:** Fill from Device → edit fields → Apply to Device → replug to verify
+
+> ⚠️ Always backup before flashing or changing USB IDs. A wrong image may prevent the camera from enumerating.
 
 ---
 
