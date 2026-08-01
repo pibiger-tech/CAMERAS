@@ -16,7 +16,7 @@ The **U20-GC2053-1080PW** is a compact USB UVC camera module based on the **Gala
 | :--- | :--- |
 | [`U20-GC2053-1080PW_EN.md`](./U20-GC2053-1080PW_EN.md) | Full English user manual (specifications, UVC controls, firmware, Python SDK) |
 | [`U20-GC2053-1080PW_CN.md`](./U20-GC2053-1080PW_CN.md) | 中文用户手册 |
-| [`firmware/`](./firmware/) | Firmware binaries and flashing tool |
+| [`firmware/`](./firmware/) | Firmware binaries, flashing tool, and XChip firmware editor |
 | [`python-code/`](./python-code/) | Cross-platform Python SDK (Windows / Linux / macOS) |
 | [`YT10077-HD.pdf`](./YT10077-HD.pdf) | Lens datasheet |
 
@@ -65,6 +65,37 @@ The camera ships with **PIBIGER brand firmware** by default. A generic (white-la
 | `U20-1080P_SN001.bin` | USB_CAMERA (generic) | 7884 | 5843 |
 
 Flash using [`firmware/USBCamDownloadToolV3.6.exe`](./firmware/USBCamDownloadToolV3.6.exe) (Windows).
+
+### XChip XC8031 Firmware Editor
+
+**[`firmware/XChip_XC8031_Tool_Windows.zip`](./firmware/XChip_XC8031_Tool_Windows.zip)** — Windows GUI/CLI tool for offline editing of XChip XC8031 packaged firmware (`.bin`). Allows viewing and patching VID, PID, product name, manufacturer, and serial number without live camera connection.
+
+**Package contents:**
+
+| File | Description |
+| :--- | :--- |
+| `XChip_XC8031_Tool.exe` | Standalone GUI — double-click to run (Python embedded) |
+| `USBCam Download Tool V3.6.exe` | Vendor flash tool for programming patched firmware to camera |
+| `samples/PIBIGER-U20-GC2053_SN0001.bin` | Sample firmware binary |
+| `README.md` | Usage guide |
+
+**Workflow:**
+1. Extract the zip
+2. Run `XChip_XC8031_Tool.exe` → **Open .bin** (e.g. `PIBIGER-U20-GC2053_SN0001.bin`)
+3. Review chip info (VID / PID / product name / frame table)
+4. Edit USB identity fields → **Apply to image** → **Save As…** `*_patched.bin`
+5. Open `USBCam Download Tool V3.6.exe` → select patched `.bin` → flash → replug and verify
+
+**CLI usage:**
+```powershell
+# View firmware info
+python xchip_cli.py info -i PIBIGER-U20-GC2053_SN0001.bin --section
+
+# Patch VID/PID and product name
+python xchip_cli.py patch -i original.bin -o patched.bin --vid 0x1234 --pid 0xABCD --manufacturer "MyCompany" --product "MyCam" --serial "SN001"
+```
+
+> ⚠️ Always keep a backup of the original `.bin` before patching. A corrupted image may prevent the camera from enumerating.
 
 ---
 
