@@ -18,7 +18,6 @@ The **U20-GC2053-1080PW** is a compact USB UVC camera module based on the **Gala
 | [`U20-GC2053-1080PW_CN.md`](./U20-GC2053-1080PW_CN.md) | 中文用户手册 |
 | [`firmware/`](./firmware/) | Firmware binaries and flashing tool |
 | [`python-code/`](./python-code/) | Cross-platform Python SDK (Windows / Linux / macOS) |
-| [`Firmware-Development/`](./Firmware-Development/) | SPCA firmware tool for firmware backup, flashing, and USB ID editing |
 | [`YT10077-HD.pdf`](./YT10077-HD.pdf) | Lens datasheet |
 
 ---
@@ -66,39 +65,6 @@ The camera ships with **PIBIGER brand firmware** by default. A generic (white-la
 | `U20-1080P_SN001.bin` | USB_CAMERA (generic) | 7884 | 5843 |
 
 Flash using [`firmware/USBCamDownloadToolV3.6.exe`](./firmware/USBCamDownloadToolV3.6.exe) (Windows).
-
----
-
-## Firmware Development Tools
-
-The [`Firmware-Development/`](./Firmware-Development/) folder contains two packages for SPCA-based firmware development and factory operations:
-
-### SPCA_ISP_Tool_Windows_x64.zip
-
-A standalone Windows x64 GUI tool for Sunplus SPCA USB cameras. No installation required.
-
-**Features:**
-- **Read** full ISP flash to a `.bin` file (firmware backup)
-- **Write** a `.bin` image to the camera (firmware flash)
-- **Edit** USB descriptor fields: VID, PID, product name, manufacturer, serial number
-
-**Package contents:**
-
-| File | Description |
-| :--- | :--- |
-| `SPCA_ISP_Tool.exe` | Main program — double-click to run |
-| `SunplusCamera.dll` | SPCA API library (bundled for override / repair) |
-| `README.md` | Usage guide |
-
-**Quick start:**
-1. Extract the zip and plug in the camera via USB
-2. Run `SPCA_ISP_Tool.exe` → click **Refresh** → select device → **Read Info**
-3. **Backup first:** Read Firmware… → save as `.bin`
-4. **Flash:** Write Firmware… → select `.bin` → confirm → replug camera
-5. **Change USB ID:** Fill from Device → edit VID/PID/name → Apply to Device → replug to verify
-
-> ⚠️ Always backup before flashing or changing USB IDs. A wrong image may prevent the camera from enumerating.
-
 
 ---
 
