@@ -18,7 +18,7 @@ The **U20-GC2053-1080PW** is a compact USB UVC camera module based on the **Gala
 | [`U20-GC2053-1080PW_CN.md`](./U20-GC2053-1080PW_CN.md) | 中文用户手册 |
 | [`firmware/`](./firmware/) | Firmware binaries and flashing tool |
 | [`python-code/`](./python-code/) | Cross-platform Python SDK (Windows / Linux / macOS) |
-| [`Firmware-Development/`](./Firmware-Development/) | SPCA firmware tools and SDK for firmware backup, flashing, USB ID editing, and OEM development |
+| [`Firmware-Development/`](./Firmware-Development/) | SPCA firmware tool for firmware backup, flashing, and USB ID editing |
 | [`YT10077-HD.pdf`](./YT10077-HD.pdf) | Lens datasheet |
 
 ---
@@ -99,38 +99,6 @@ A standalone Windows x64 GUI tool for Sunplus SPCA USB cameras. No installation 
 
 > ⚠️ Always backup before flashing or changing USB IDs. A wrong image may prevent the camera from enumerating.
 
----
-
-### SPCA_System_SDK_Customer.zip
-
-A comprehensive SDK package for OEM/ODM customers integrating SPCA-based USB cameras into their products. Covers Windows, Android, and Linux platforms.
-
-**Package contents:**
-
-| Path | Description |
-| :--- | :--- |
-| `Windows/SPCA_API_S1_v9.2307.18.1/` | Windows DLL (`SunplusCamera.dll`/`.lib`), C header (`sunpluscamera.h`), Visual Studio demo projects (`SunplusDll_Demo`, `Multi_Demo_DLL`), CHM API reference |
-| `Android/FWUpdate_APK/` | Pre-built Android APK for firmware update (`SPCAFWUpdate_20230609.apk`) |
-| `Android/SDK/` | Android firmware update demo project (`SPCADemo_FWUpdate_0409.zip`) |
-| `Linux/` | Linux firmware upgrade package (`Linux_Upgrade.7z`) |
-| `Tools/SPCA_ISP_Tool/` | Same ISP tool as above (included for convenience) |
-
-**Windows development quick start:**
-1. Extract the zip
-2. Reference `SPCamera/x64/SunplusCamera.lib` in your Visual Studio project
-3. Include `SPCamera/sunpluscamera.h`
-4. Deploy `SPCamera/x64/SunplusCamera.dll` alongside your executable
-5. See `SunplusDll_Demo/` or `Multi_Demo_DLL/` for working example code
-6. Refer to the CHM API reference (`readme.chm`) for full API documentation
-
-**Android quick start:**
-- Install `FWUpdate_APK/SPCAFWUpdate_20230609.apk` directly for firmware update
-- Or open `SDK/SPCADemo_FWUpdate_0409.zip` in Android Studio for integration
-
-**Linux quick start:**
-- Extract `Linux/Linux_Upgrade.7z` and follow the included instructions
-
-> **Scope:** This SDK is for SPCA product integration, factory tools, and firmware update. It does not include ISP firmware source code. For chip-specific support (secure download, write-protect, supported IC list), contact your FAE.
 
 ---
 
